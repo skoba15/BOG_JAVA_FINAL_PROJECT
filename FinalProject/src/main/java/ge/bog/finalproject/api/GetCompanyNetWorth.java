@@ -45,7 +45,7 @@ public class GetCompanyNetWorth extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOGGER.info("Executing GET method");
 
-        String companyName = validateName(req, resp, "companyname");
+        String companyName = validateName(req, resp, "companyName");
 
         if (companyName != null) {
             Company company = companyService.getCompanyByName(companyName);

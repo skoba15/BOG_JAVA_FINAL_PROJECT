@@ -49,17 +49,22 @@ public class GetCompaniesFromCountry extends HttpServlet {
         LOGGER.info("Executing GET method");
         String companyName = validateCompanyName(req, resp, "companyName");
         String countryName = validateParameter(req, resp, "countryName");
-        Gson gson = new Gson();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         if (companyName != null && countryName != null) {
             List<Company> companies = companyToCountryActions.getCompaniesfromCountry(companyName, countryName);
             if (companies != null) {
-                String json = new Gson().toJson(companies);
-                resp.getWriter().write(json);
+                if (companies.isEmpty()) {
+                    LOGGER.info("No matches for the company " + companyName);
+                    resp.getWriter().write("There are no offices of company " + companyName + " in " +  countryName);
+                }
+                else {
+                    String json = new Gson().toJson(companies);
+                    resp.getWriter().write(json);
+                }
             } else {
-                LOGGER.info("Not found any company with name like " + companyName + " in " + countryName);
-                resp.getWriter().write("invalid country name or no matches can be found for the given company name pattern in " + countryName);
+                LOGGER.info("Invalid country name " + countryName);
+                resp.getWriter().write("invalid country name " + countryName);
             }
         }
     }

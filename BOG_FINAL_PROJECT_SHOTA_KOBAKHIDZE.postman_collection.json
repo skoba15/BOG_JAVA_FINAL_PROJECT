@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "a66d5bf0-dc33-4b0f-ae39-cf9375154edd",
+		"name": "BOG_FINAL_PROJECT_SHOTA_KOBAKHIDZE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/addCountry?countryName=Georgia&countryCode=GE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/addCountry?countryName=Georgia&countryCode=GE",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject-1.0-SNAPSHOT",
+						"addCountry"
+					],
+					"query": [
+						{
+							"key": "countryName",
+							"value": "Georgia"
+						},
+						{
+							"key": "countryCode",
+							"value": "GE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/addCountry?countryName=Georgia&countryCode=GE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/addCompany?companyName=Google&employeesNumber=100000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject-1.0-SNAPSHOT",
+						"addCompany"
+					],
+					"query": [
+						{
+							"key": "companyName",
+							"value": "Google"
+						},
+						{
+							"key": "employeesNumber",
+							"value": "100000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/addCountry?countryName=Georgia&countryCode=GE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/addCompanyToCountry?companyName=Google&countryName=Georgia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject-1.0-SNAPSHOT",
+						"addCompanyToCountry"
+					],
+					"query": [
+						{
+							"key": "companyName",
+							"value": "Google"
+						},
+						{
+							"key": "countryName",
+							"value": "Georgia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/addCountry?countryName=Georgia&countryCode=GE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/removeCompanyFromCountry?companyName=Google&countryName=Georgia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject-1.0-SNAPSHOT",
+						"removeCompanyFromCountry"
+					],
+					"query": [
+						{
+							"key": "companyName",
+							"value": "Google"
+						},
+						{
+							"key": "countryName",
+							"value": "Georgia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/addCountry?countryName=Georgia&countryCode=GE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/getCompaniesFromCountry?companyName=Google&countryName=Georgia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject-1.0-SNAPSHOT",
+						"getCompaniesFromCountry"
+					],
+					"query": [
+						{
+							"key": "companyName",
+							"value": "Google"
+						},
+						{
+							"key": "countryName",
+							"value": "Georgia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/addCountry?countryName=Georgia&countryCode=GE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/FinalProject-1.0-SNAPSHOT/getCompanyNetWorth?companyName=Google",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject-1.0-SNAPSHOT",
+						"getCompanyNetWorth"
+					],
+					"query": [
+						{
+							"key": "companyName",
+							"value": "Google"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
