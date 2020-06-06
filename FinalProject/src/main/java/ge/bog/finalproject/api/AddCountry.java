@@ -1,6 +1,7 @@
 package ge.bog.finalproject.api;
 
 import ge.bog.finalproject.services.*;
+import ge.bog.finalproject.utils.ParametersChecker;
 import org.apache.log4j.*;
 
 import javax.servlet.*;
@@ -15,29 +16,15 @@ public class AddCountry extends HttpServlet {
 
     private CountryService countryService = new CountryServiceImpl();
 
+    private ParametersChecker parametersChecker = new ParametersChecker();
 
-    private String validateParameter(HttpServletRequest req, HttpServletResponse resp, String parameterName) throws IOException {
-        String result = req.getParameter(parameterName);
-        if (result != null) {
-            if (result.equals("")) {
-                LOGGER.info("empty " + parameterName + " passed");
-                resp.getWriter().write("empty parameter " + parameterName + " not allowed\n");
-                return null;
-            }
-            return result;
-        } else {
-            LOGGER.info("parameter" + parameterName + " missing\n");
-            resp.getWriter().write("parameter " + parameterName + " missing\n");
-            return null;
-        }
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOGGER.info("Executing POST method");
 
-        String countryName = validateParameter(req, resp, "countryName");
-        String countryCode = validateParameter(req, resp, "countryCode");
+        String countryName = parametersChecker.validateName(req, resp, "countryName");
+        String countryCode = parametersChecker.validateName(req, resp, "countryCode");
 
         if (countryName != null && countryCode != null) {
             LOGGER.info("Passed country with name " + countryName + " and country code " + countryCode);
@@ -47,7 +34,7 @@ public class AddCountry extends HttpServlet {
                 resp.getWriter().write("Country Successfully added!\n");
             } else {
                 LOGGER.info("country with name " + countryName + " or country code with name " + countryCode + " already exists");
-                resp.getWriter().write("country with name " + countryName + "or country code with name " + countryCode + "already exists\n");
+                resp.getWriter().write("country with name " + countryName + " or country code with name " + countryCode + " already exists\n");
             }
         }
     }

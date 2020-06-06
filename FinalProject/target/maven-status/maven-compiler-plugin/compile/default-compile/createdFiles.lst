@@ -1,6 +1,7 @@
 ge\bog\finalproject\services\CompanyService.class
 ge\bog\finalproject\api\AddCompany.class
 ge\bog\finallproject\soap\package-info.class
+ge\bog\finalproject\utils\ParametersChecker.class
 ge\bog\finalproject\models\CompanyToCountry.class
 ge\bog\finalproject\DBConnection\DBConnection.class
 ge\bog\finalproject\api\GetCompanyNetWorth.class

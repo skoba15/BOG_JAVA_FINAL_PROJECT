@@ -3,6 +3,7 @@ package ge.bog.finalproject.api;
 import ge.bog.finallproject.soap.*;
 import ge.bog.finalproject.models.*;
 import ge.bog.finalproject.services.*;
+import ge.bog.finalproject.utils.ParametersChecker;
 import org.apache.cxf.jaxws.*;
 import org.apache.log4j.*;
 
@@ -16,21 +17,8 @@ public class GetCompanyNetWorth extends HttpServlet {
 
     private CompanyService companyService = new CompanyServiceImpl();
 
-    private String validateName(HttpServletRequest req, HttpServletResponse resp, String parameterName) throws IOException {
-        String result = req.getParameter(parameterName);
-        if (result != null) {
-            if (result.equals("")) {
-                LOGGER.info("empty " + parameterName + " passed");
-                resp.getWriter().write("empty parameter " + parameterName + " not allowed\n");
-                return null;
-            }
-            return result;
-        } else {
-            LOGGER.info("parameter" + parameterName + " missing\n");
-            resp.getWriter().write("parameter " + parameterName + " missing\n");
-            return null;
-        }
-    }
+    private ParametersChecker parametersChecker = new ParametersChecker();
+
 
 
     private SoapNetWorthCounter getWs () {
@@ -45,7 +33,7 @@ public class GetCompanyNetWorth extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOGGER.info("Executing GET method");
 
-        String companyName = validateName(req, resp, "companyName");
+        String companyName = parametersChecker.validateName(req, resp, "companyName");
 
         if (companyName != null) {
             Company company = companyService.getCompanyByName(companyName);

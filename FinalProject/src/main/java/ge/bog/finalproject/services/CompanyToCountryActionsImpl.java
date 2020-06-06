@@ -112,6 +112,7 @@ public class CompanyToCountryActionsImpl implements CompanyToCountryActions {
         LOGGER.info("Searching for companies " + "with name like " + companyName + " in " + countryName + " in the database");
         Country country = countryService.getCountryByName(countryName);
         if (country == null) {
+            session.close();
             return null;
         }
         String hql = "SELECT c.company FROM CompanyToCountry c WHERE c.company.name like :companyName AND c.country.name = :countryName AND c.officesNumber > 0";
